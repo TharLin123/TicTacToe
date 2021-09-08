@@ -18,7 +18,7 @@ namespace TicTacToe
 
             for (int i = 0; i < input.Length; i++)
             {
-                //The program will detect "X" and "O" and try to insert the array!!
+                //The program will detect "X","O" and "." try to insert the array!!
                 if (input[i].Equals('X')   || input[i].Equals('O') || input[i].Equals('.'))
                 {
                     try
