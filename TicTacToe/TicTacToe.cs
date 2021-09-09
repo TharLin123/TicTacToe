@@ -60,7 +60,7 @@ namespace TicTacToe
             //if there is more than one change, state is maintained back to previous state
             if (stateChangeCount > 1)
             {
-                Console.WriteLine("Wait, What? Pls make one change at a time");
+                Console.WriteLine("Wait, What? Invalid Input");
                 rollBack(state);
             }
             else

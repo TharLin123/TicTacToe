@@ -26,8 +26,13 @@ namespace TicTacToe
             //The input are inserted into the newState array
             for (int i = 0; i < input.Length; i++)
             {
+<<<<<<< HEAD
                 //The program will detect "X" and "O" and try to insert the array!!
                 if (input[i].Equals('X') || input[i].Equals('O') || input[i].Equals('.'))
+=======
+                //The program will detect "X","O" and "." and try to insert into the array!!
+                if (input[i].Equals('X')   || input[i].Equals('O') || input[i].Equals('.'))
+>>>>>>> 93ecf3d76662e288d6da394c84019e954c857abc
                 {
                     try
                     {
