@@ -6,7 +6,7 @@ namespace TicTacToe
     {
         //This program won't check for the format of input yet
         //pls input as the following format
-        //{{ '.' ,'.' ,'.'},{ '.' ,'.' ,'X'},{ 'X' ,'X' ,'O'}}
+        //{{ '.' ,'.' ,'.'},{ '.' ,'.' ,'X'},{ '.' ,'.' ,'X'}}
 
         //state is declared at the class-level
         static char[,] state = { { '.', '.', '.' }, { '.', '.', '.' }, { '.', '.', '.' } };

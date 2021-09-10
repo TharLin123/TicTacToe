@@ -40,17 +40,17 @@ namespace TicTacToe
             {
                 for (int j = 0; j < newState.GetLength(1); j++)
                 {
-                    //it will detect the number of change that changes from '.' to 'X' or 'O' and assign to state
-                    if (state[i, j] == '.' && state[i, j] != newState[i, j])
-                    {
-                        state[i, j] = newState[i, j];
-                        stateChangeCount++;
-                    }
                     //check the difference between two state and detect invalid change
-                    // the changes that change from 'X' to 'O' or 'X','O' to '.' are invalid
+                    // the changes that change from 'X' to 'O' or 'X','O' to '.' are considered invalid
                     if (state[i, j] != '.' && state[i, j] == '.' || state[i, j] != '.' && newState[i, j] != state[i, j])
                     {
-                        stateChangeCount += 2;
+                        Console.WriteLine("Wait, What? Invalid Input");
+                    }
+                    //it will detect the number of change that changes from '.' to 'X' or 'O' and assign to state
+                    else if (state[i, j] == '.' && state[i, j] != newState[i, j])
+                    {
+                        state[i, j] = newState[i, j]; //assign to the state
+                        stateChangeCount++; // the stateChangeCount increase as the state change
                     }
                 }
             }
@@ -61,7 +61,7 @@ namespace TicTacToe
                 Console.WriteLine("Wait, What? Invalid Input");
                 rollBack(state);
             }
-            else if(stateChangeCount == 0)
+            else if(stateChangeCount == 0) //if there is no change...
             {
                 Console.WriteLine("Wait, What? Pls make a change");
             }
@@ -117,12 +117,12 @@ namespace TicTacToe
             else if(countX - countO > 1)
             {
                 rollBack(state);
-                Console.WriteLine("Wait What? Isn't it supposed to be O's turn");
+                Console.WriteLine("Wait What? Isn't it supposed to be O's turn?");
             }
             else if(countO > countX)
             {
                 rollBack(state);
-                Console.WriteLine("Wait What? Isn't it supposed to be X's turn");
+                Console.WriteLine("Wait What? Isn't it supposed to be X's turn?");
             }
             else // all other conditions are invalid
             {

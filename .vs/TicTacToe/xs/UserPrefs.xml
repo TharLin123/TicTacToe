@@ -2,8 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.TicTacToe PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="TicTacToe/Program.cs">
     <Files>
-      <File FileName="TicTacToe/Program.cs" Line="35" Column="1" />
-      <File FileName="TicTacToe/TicTacToe.cs" />
+      <File FileName="TicTacToe/Program.cs" Line="9" Column="63" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
