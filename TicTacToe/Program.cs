@@ -4,24 +4,30 @@ namespace TicTacToe
 {
     class Program
     {
-        //This program won't check for the format of input yet
-        //pls input as the following format
-        //{{ '.' ,'.' ,'.'},{ '.' ,'.' ,'X'},{ '.' ,'.' ,'X'}}
+        //This program will check for the format of the input
+        //It must be in the following format with 'X' or 'O' instead '.'
+        //{{'.','.','.'},{'.','.','.'},{'.','.','X'}}
+        // X has to start the game and only one changes allow per input
 
         //state is declared at the class-level
         static char[,] state = { { '.', '.', '.' }, { '.', '.', '.' }, { '.', '.', '.' } };
 
         static void Main()
         {
-            
+            Console.Write("Please insert a TicTacToe pattern:");
+            string input = Console.ReadLine();
+
+            while (!TicTacToe.isInputValid(input))
+            {
+                Console.Write("Please insrt a TicTacToe pattern:");
+                input = Console.ReadLine();
+            }
+
             char[,] newState = new char[3, 3];
 
             int secondIndexOfFirstArray = 0;
             int secondIndexOfSecondArray = 0;
             int secondIndexOfThirthArray = 0;
-
-            Console.Write("Please insrt a TicTacToe pattern:");
-            string input = Console.ReadLine();
 
             //The input are inserted into the newState array
             for (int i = 0; i < input.Length; i++)
