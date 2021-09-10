@@ -69,6 +69,7 @@ namespace TicTacToe
             if (TicTacToe.isThereWinner(state))
             {
                 TicTacToe.OutputState(state);
+                Console.WriteLine("Game Over");
                 return;
             }
             TicTacToe.checkTurn(state);
