@@ -187,7 +187,6 @@ namespace TicTacToe
                 {
                     if(input[i] != inputFormat[i])
                     {
-                        Console.Write(i);
                         if(i == 3 || i == 7 || i == 11 || i == 17 || i == 21 || i == 25 || i == 31 || i == 35 || i == 39)
                         {
                             if(input[i] == 'X' || input[i] == 'O' || input[i] == '.')
