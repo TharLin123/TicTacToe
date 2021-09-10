@@ -6,7 +6,7 @@ namespace TicTacToe
     {
         //This program will check for the format of the input
         //It must be in the following format with 'X' or 'O' instead '.'
-        //{{'.','.','.'},{'.','.','.'},{'.','.','X'}}
+        //>>>{{'.','.','.'},{'.','.','.'},{'.','.','X'}}<<<
         // X has to start the game and only one changes allow per input
 
         //state is declared at the class-level
