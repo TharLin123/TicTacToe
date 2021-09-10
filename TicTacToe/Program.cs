@@ -4,11 +4,11 @@ namespace TicTacToe
 {
     class Program
     {
-        //This program won't check for the format of input
+        //This program won't check for the format of input yet
         //pls input as the following format
-        //{{ '.' ,'.' ,'.'},{ '.' ,'.' ,'.'},{ 'X' ,'.' ,'X'}}
+        //{{ '.' ,'.' ,'.'},{ '.' ,'.' ,'X'},{ 'X' ,'X' ,'O'}}
 
-        //state is maintained at the class-level
+        //state is declared at the class-level
         static char[,] state = { { '.', '.', '.' }, { '.', '.', '.' }, { '.', '.', '.' } };
 
         static void Main()
@@ -26,13 +26,9 @@ namespace TicTacToe
             //The input are inserted into the newState array
             for (int i = 0; i < input.Length; i++)
             {
-<<<<<<< HEAD
                 //The program will detect "X" and "O" and try to insert the array!!
                 if (input[i].Equals('X') || input[i].Equals('O') || input[i].Equals('.'))
-=======
-                //The program will detect "X","O" and "." and try to insert into the array!!
-                if (input[i].Equals('X')   || input[i].Equals('O') || input[i].Equals('.'))
->>>>>>> 93ecf3d76662e288d6da394c84019e954c857abc
+
                 {
                     try
                     {
@@ -63,6 +59,13 @@ namespace TicTacToe
             }
 
             TicTacToe.changeState(state,newState);
+            
+            if (TicTacToe.isThereWinner(state))
+            {
+                TicTacToe.OutputState(state);
+                return;
+            }
+            TicTacToe.checkTurn(state);
             TicTacToe.OutputState(state);
             Main();
         }

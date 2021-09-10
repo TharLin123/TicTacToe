@@ -40,17 +40,15 @@ namespace TicTacToe
             {
                 for (int j = 0; j < newState.GetLength(1); j++)
                 {
-                    //it will detect the number of change that changes from '.' to 'X' or 'O'
+                    //it will detect the number of change that changes from '.' to 'X' or 'O' and assign to state
                     if (state[i, j] == '.' && state[i, j] != newState[i, j])
                     {
+                        state[i, j] = newState[i, j];
                         stateChangeCount++;
                     }
-                    //check the difference between two state and make the change
-                    if (state[i, j] == newState[i, j] || state[i, j] == '.')
-                    {
-                        state[i, j] = newState[i, j];
-                    }
-                    if (state[i, j] != '.' && newState[i, j] != state[i, j])
+                    //check the difference between two state and detect invalid change
+                    // the changes that change from 'X' to 'O' or 'X','O' to '.' are invalid
+                    if (state[i, j] != '.' && state[i, j] == '.' || state[i, j] != '.' && newState[i, j] != state[i, j])
                     {
                         stateChangeCount += 2;
                     }
@@ -63,9 +61,9 @@ namespace TicTacToe
                 Console.WriteLine("Wait, What? Invalid Input");
                 rollBack(state);
             }
-            else
+            else if(stateChangeCount == 0)
             {
-                checkWinner(state);
+                Console.WriteLine("Wait, What? Pls make a change");
             }
         }
 
@@ -116,6 +114,16 @@ namespace TicTacToe
                 rollBack(state);
                 Console.WriteLine("Wait, What? X must start the game first!");
             }
+            else if(countX - countO > 1)
+            {
+                rollBack(state);
+                Console.WriteLine("Wait What? Isn't it supposed to be O's turn");
+            }
+            else if(countO > countX)
+            {
+                rollBack(state);
+                Console.WriteLine("Wait What? Isn't it supposed to be X's turn");
+            }
             else // all other conditions are invalid
             {
                 rollBack(state);
@@ -123,13 +131,11 @@ namespace TicTacToe
             }
         }
 
-        public static void checkWinner(char[,] state)
+        public static bool isThereWinner(char[,] state)
         {
             //(0,0)(0,1)(0,2)
             //(1,0)(1,1)(1,2)
             //(2,0)(2,1)(2,2)
-
-            int countWinner = 0;
 
             if (
                 state[0, 0] == state[0, 1] && state[0, 1] == state[0, 2] ||
@@ -139,11 +145,11 @@ namespace TicTacToe
                 //the system need to ignore '.'
                 if (state[0, 0] != '.')
                 {
-                    countWinner++;
                     Console.WriteLine("{0} won", state[0, 0]);
+                    return true;
                 }
             }
-            if
+            else if
                 (
                 state[0, 0] == state[1, 1] && state[1, 1] == state[2, 2] ||
                 state[2, 0] == state[1, 1] && state[1, 1] == state[0, 2] ||
@@ -153,33 +159,26 @@ namespace TicTacToe
             {
                 if (state[1, 1] != '.')
                 {
-                    countWinner++;
                     Console.WriteLine("{0} won", state[1, 1]);
+                    return true;
                 }
             }
-            if (
-                state[2, 2] == state[1, 2] && state[1, 2] == state[0, 2] ||
-                state[2, 2] == state[2, 1] && state[2, 1] == state[2, 0]
-            )
+            else if (state[2, 2] == state[1, 2] && state[1, 2] == state[0, 2] ||
+                state[2, 2] == state[2, 1] && state[2, 1] == state[2, 0])
+                
+            
             {
                 if (state[2, 2] != '.')
                 {
-                    countWinner++;
                     Console.WriteLine("{0} won", state[2, 2]);
+                    return true;
                 }
             }
-
-            // If there is more than one winner, the game is considered invalid!
-            if (countWinner > 1)
-            {
-                Console.WriteLine("Wait! What");
-            }
-            else if (countWinner == 0)
-            {
-                //if there is no winner, the program wil check turn! 
-                checkTurn(state);
-            }
+            return false;
         }
 
+        public static bool validateInput(string input) {
+            return true;
+        }
     }
 }
