@@ -14,7 +14,6 @@ namespace TicTacToe
         //Invalid inputs will be ignored and won't take count into the game
         //The game will end when there is a winner
         //Have Fun Playing TicTacToe :)
-        //This program will check for the format of the input
 
         static void Main()
         {
