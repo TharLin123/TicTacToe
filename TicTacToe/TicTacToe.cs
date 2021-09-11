@@ -4,7 +4,9 @@ namespace TicTacToe
 {
     public static class TicTacToe
     {
+        //states are declared at the class-level
         static char[,] previousState = new char[3, 3];
+        static char[,] state = { { '.', '.', '.' }, { '.', '.', '.' }, { '.', '.', '.' } };
 
         public static void maintainState(char[,] state)
         {
@@ -18,7 +20,8 @@ namespace TicTacToe
             }
         }
 
-        public static void rollBack(char[,] state)
+        //rolling back to the previous conditoin
+        public static void rollBack()
         {
             for (int i = 0; i < previousState.GetLength(0); i++)
             {
@@ -29,7 +32,7 @@ namespace TicTacToe
             }
         }
 
-        public static void changeState(char[,] state, char[,] newState)
+        public static void changeState(char[,] newState)
         {
             //we should maintain our state first before any changes occur
             maintainState(state);
@@ -42,11 +45,11 @@ namespace TicTacToe
                 {
                     //check the difference between two state and detect invalid change
                     // the changes that change from 'X' to 'O' or 'X','O' to '.' are considered invalid
-                    if (state[i, j] != '.' && state[i, j] == '.' || state[i, j] != '.' && newState[i, j] != state[i, j])
+                    if (state[i, j] != '.' && newState[i, j] == '.' || state[i, j] != '.' && newState[i, j] != state[i, j])
                     {
                         Console.WriteLine("Wait, What? Invalid Input");
                     }
-                    //it will detect the number of change that changes from '.' to 'X' or 'O' and assign to state
+                    //the program will only allow the changes that change from '.' to 'X' or 'O' and assign to state
                     else if (state[i, j] == '.' && state[i, j] != newState[i, j])
                     {
                         state[i, j] = newState[i, j]; //assign to the state
@@ -59,15 +62,11 @@ namespace TicTacToe
             if (stateChangeCount > 1)
             {
                 Console.WriteLine("Wait, What? Invalid Input");
-                rollBack(state);
-            }
-            else if(stateChangeCount == 0) //if there is no change...
-            {
-                Console.WriteLine("Wait, What? Pls make a change");
+                rollBack();
             }
         }
 
-        public static void OutputState(char[,] state)
+        public static void OutputState()
         {
             for (int i = 0; i < state.GetLength(0); i++)
             {
@@ -79,7 +78,7 @@ namespace TicTacToe
             }
         }
 
-        public static void checkTurn(char[,] state)
+        public static void checkTurn()
         {
             int countX = 0;
             int countO = 0;
@@ -111,27 +110,27 @@ namespace TicTacToe
             else if(countX== 0 && countO == 1) // it means O start the game first which isn't supposed to be
             {
                 //the state will be maintained back
-                rollBack(state);
+                rollBack();
                 Console.WriteLine("Wait, What? X must start the game first!");
             }
-            else if(countX - countO > 1)
+            else if(countX - countO > 1)//checking if O's turn is skipped
             {
-                rollBack(state);
+                rollBack();
                 Console.WriteLine("Wait What? Isn't it supposed to be O's turn?");
             }
-            else if(countO > countX)
+            else if(countO > countX)//checking if X's turn is skipped
             {
-                rollBack(state);
+                rollBack();
                 Console.WriteLine("Wait What? Isn't it supposed to be X's turn?");
             }
             else // all other conditions are invalid
             {
-                rollBack(state);
+                rollBack();
                 Console.WriteLine("Wait What? Input Invalid");
             }
         }
 
-        public static bool isThereWinner(char[,] state)
+        public static bool isThereWinner()
         {
             //(0,0)(0,1)(0,2)
             //(1,0)(1,1)(1,2)
@@ -165,8 +164,7 @@ namespace TicTacToe
             }
             else if (state[2, 2] == state[1, 2] && state[1, 2] == state[0, 2] ||
                 state[2, 2] == state[2, 1] && state[2, 1] == state[2, 0])
-                
-            
+
             {
                 if (state[2, 2] != '.')
                 {

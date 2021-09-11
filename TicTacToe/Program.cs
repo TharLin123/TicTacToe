@@ -2,15 +2,18 @@
 
 namespace TicTacToe
 {
+    //CREATED BY TEAM - 5 (REP NAME, NAME, THAR LIN HTET......... )
     class Program
     {
-        //This program will check for the format of the input
-        //It must be in the following format with 'X' or 'O' instead '.'
-        //{{'.','.','.'},{'.','.','.'},{'.','.','X'}}
-        // X has to start the game and only one changes allow per input
-
-        //state is declared at the class-level
-        static char[,] state = { { '.', '.', '.' }, { '.', '.', '.' }, { '.', '.', '.' } };
+                                    //Game Rules
+        //Input must be exactly as the following format with 'X' or 'O' instead '.'
+        //>>>{{'.','.','.'},{'.','.','.'},{'.','.','O'}}<<<
+        // X has to start the game, followed by O and go on alternatively
+        //Invalid inputs includes wrong format, skipping turn, replacing 'X' or 'O'
+        //and putting more than one changes in an input
+        //Invalid inputs will be ignored and won't take count into the game
+        //The game will end when there is a winner
+        //Have Fun Playing TicTacToe :)
 
         static void Main()
         {
@@ -19,7 +22,7 @@ namespace TicTacToe
 
             while (!TicTacToe.isInputValid(input))
             {
-                Console.Write("Please insrt a TicTacToe pattern:");
+                Console.Write("Please insert a TicTacToe pattern:");
                 input = Console.ReadLine();
             }
 
@@ -64,15 +67,16 @@ namespace TicTacToe
                 }
             }
 
-            TicTacToe.changeState(state,newState);
+            TicTacToe.changeState(newState);
             
-            if (TicTacToe.isThereWinner(state))
+            if (TicTacToe.isThereWinner())
             {
-                TicTacToe.OutputState(state);
+                TicTacToe.OutputState();
+                Console.WriteLine("Game Over");
                 return;
             }
-            TicTacToe.checkTurn(state);
-            TicTacToe.OutputState(state);
+            TicTacToe.checkTurn();
+            TicTacToe.OutputState();
             Main();
         }
     }
