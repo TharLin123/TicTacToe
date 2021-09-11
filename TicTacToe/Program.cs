@@ -6,7 +6,7 @@ namespace TicTacToe
     class Program
     {
                                     //Game Rules
-        //Input must be exactly as the following format with 'X' or 'O' instead '.'
+        //Input must be exactly the same as the following format with 'X' or 'O' instead '.'
         //>>>{{'.','.','.'},{'.','.','.'},{'.','.','O'}}<<<
         // X has to start the game, followed by O and go on alternatively
         //Invalid inputs includes wrong format, skipping turn, replacing 'X' or 'O'
