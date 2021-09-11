@@ -72,7 +72,6 @@ namespace TicTacToe
             if (TicTacToe.isThereWinner() || TicTacToe.isTheGameDraw())
             {
                 TicTacToe.OutputState();
-                TicTacToe.OutputState();
                 Console.WriteLine("Game Over");
                 return;
             }

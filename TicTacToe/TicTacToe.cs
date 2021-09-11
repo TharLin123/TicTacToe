@@ -148,6 +148,7 @@ namespace TicTacToe
             //if there is no more dot, the game is draw
             if(countDot == 0)
             {
+                Console.WriteLine("Draw");
                 return true;
             }
             return false;
