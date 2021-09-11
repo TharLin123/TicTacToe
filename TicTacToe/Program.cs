@@ -15,9 +15,6 @@ namespace TicTacToe
         //The game will end when there is a winner
         //Have Fun Playing TicTacToe :)
         //This program will check for the format of the input
-        //It must be in the following format with 'X' or 'O' instead '.'
-        //>>>{{'.','.','.'},{'.','.','.'},{'.','.','X'}}<<<
-        // X has to start the game and only one changes allow per input
 
         static void Main()
         {
@@ -85,5 +82,4 @@ namespace TicTacToe
             Main();
         }
     }
-
 }
