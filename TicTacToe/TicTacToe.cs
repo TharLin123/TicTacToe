@@ -130,6 +130,29 @@ namespace TicTacToe
             }
         }
 
+        public static bool isTheGameDraw()
+        {
+            int countDot = 0;
+
+            for (int i = 0; i < state.GetLength(0); i++)
+            {
+                for (int j = 0; j < state.GetLength(1); j++)
+                {
+                    if (state[i,j] == '.')
+                    {
+                        countDot++;
+                    }
+                }
+            }
+
+            //if there is no more dot, the game is draw
+            if(countDot == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public static bool isThereWinner()
         {
             //(0,0)(0,1)(0,2)

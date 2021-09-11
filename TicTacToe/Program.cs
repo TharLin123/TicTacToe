@@ -12,12 +12,8 @@ namespace TicTacToe
         //Invalid inputs includes wrong format, skipping turn, replacing 'X' or 'O'
         //and putting more than one changes in an input
         //Invalid inputs will be ignored and won't take count into the game
-        //The game will end when there is a winner
+        //The game will end when there is a winner or no more '.' to be replaced by 'X' or 'O'
         //Have Fun Playing TicTacToe :)
-        //This program will check for the format of the input
-        //It must be in the following format with 'X' or 'O' instead '.'
-        //>>>{{'.','.','.'},{'.','.','.'},{'.','.','X'}}<<<
-        // X has to start the game and only one changes allow per input
 
         static void Main()
         {
@@ -73,10 +69,10 @@ namespace TicTacToe
 
             TicTacToe.changeState(newState);
             
-            if (TicTacToe.isThereWinner())
+            if (TicTacToe.isThereWinner() || TicTacToe.isTheGameDraw())
             {
                 TicTacToe.OutputState();
-                TicTacToe.OutputState(state);
+                TicTacToe.OutputState();
                 Console.WriteLine("Game Over");
                 return;
             }

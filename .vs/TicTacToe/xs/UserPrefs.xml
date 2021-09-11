@@ -1,10 +1,6 @@
 ﻿<Properties StartupConfiguration="{002F2BA4-C941-493F-8E04-D362AFF13590}|Default">
   <MonoDevelop.Ide.ItemProperties.TicTacToe PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TicTacToe/Program.cs">
-    <Files>
-      <File FileName="TicTacToe/Program.cs" Line="85" Column="1" />
-      <File FileName="TicTacToe/TicTacToe.cs" Line="53" Column="78" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
