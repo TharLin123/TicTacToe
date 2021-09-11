@@ -5,6 +5,7 @@ namespace TicTacToe
     //CREATED BY TEAM - 5 (REP NAME, NAME, THAR LIN HTET......... )
     class Program
     {
+<<<<<<< HEAD
                                     //Game Rules
         //Input must be exactly as the following format with 'X' or 'O' instead '.'
         //>>>{{'.','.','.'},{'.','.','.'},{'.','.','O'}}<<<
@@ -14,6 +15,15 @@ namespace TicTacToe
         //Invalid inputs will be ignored and won't take count into the game
         //The game will end when there is a winner
         //Have Fun Playing TicTacToe :)
+=======
+        //This program will check for the format of the input
+        //It must be in the following format with 'X' or 'O' instead '.'
+        //>>>{{'.','.','.'},{'.','.','.'},{'.','.','X'}}<<<
+        // X has to start the game and only one changes allow per input
+
+        //state is declared at the class-level
+        static char[,] state = { { '.', '.', '.' }, { '.', '.', '.' }, { '.', '.', '.' } };
+>>>>>>> 7a9972ff5183d05f62a04ab91e6621a8eb0dfc58
 
         static void Main()
         {
@@ -71,7 +81,11 @@ namespace TicTacToe
             
             if (TicTacToe.isThereWinner())
             {
+<<<<<<< HEAD
                 TicTacToe.OutputState();
+=======
+                TicTacToe.OutputState(state);
+>>>>>>> 7a9972ff5183d05f62a04ab91e6621a8eb0dfc58
                 Console.WriteLine("Game Over");
                 return;
             }
