@@ -2,7 +2,6 @@
 
 namespace TicTacToe
 {
-    //CREATED BY TEAM - 5 (REP NAME, NAME, THAR LIN HTET......... )
     class Program
     {
                                     //Game Rules
